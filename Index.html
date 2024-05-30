@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Electron hub support</title>
+<link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+<style>
+body{
+
+margin:0px;
+padding:0px;
+
+}
+
+.bar{
+width:100%;
+height:90px;
+box-sizing:border-box;
+background:yellow;
+position:fixed;
+top:0px;
+border-radius:8px;
+padding:0px;
+}
+
+.bar div{
+width:20%;
+height:100%;
+box-sizing:border-box;
+float:left;
+text-align:center;
+font-size:1.8vw;
+font-weight:bold;
+margin:0px;
+padding-top:20px;
+
+}
+
+.bar div:hover{
+color:white;
+background-color:red;
+font-size:2.5vw;
+transition:0.5s;
+border-radius:8px;
+}
+
+a{
+text-decoration:none;
+color:black;
+}
+
+.section{
+width:100%;
+height:300px;
+box-sizing:border-box;
+float:left;
+margin-top:91px;
+background-image:url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhytFGKdnnQmIHsZPAhVtTPa0A6JRp_Vpt69FagEap0tFIjCICEKjzIxbwpXmHHuwTwfByep7g3FacPax_b8R_XG9Wj2WIQZhI89sAjMDxF1ZAB-8J654wE4ZQ59UNIKUIrJVcvTr5_7ypr4-256iOkmSSn6mquBjvBR0rjYCqF-9sBEppxmyD-I53i7V8/s612/IMG-20240414-WA0006.jpg);
+background-size:cover;
+background-position:center right;
+}
+
+h1{
+color:#5ee16a85;
+font-size:7vw;
+font-weight:bold;
+text-align:center;
+padding:0px;
+margin:0px;
+padding-top:105px;
+padding-left:15px;
+}
+
+h3{
+color:#25cfe14d;
+font-size:4vw;
+font-weight:bold;
+padding:0px;
+margin:0px;
+padding-left:50px;
+}
+
+.form{
+width:100%;
+height:400px;
+box-sizing:border-box;
+background-image:linear-gradient(skyblue,orange);
+float:left;
+margin-top:1px;
+}
+
+.data{
+width:50%;
+height:300px;
+box-sizing:border-box;
+padding-top:5px;
+margin:0 auto;
+margin-top:50px;
+background:white;
+border:4px solid red;
+animation:border 2s linear infinite;
+}
+
+@keyframes border{
+0%{
+border-color: red;
+}
+
+20%{
+border-color: purple;
+}
+
+40%{
+border-color:pink;
+}
+
+60%{
+border-color:green;
+}
+
+80%{
+border-color:yellow;
+}
+
+100%{
+border-color:red;
+}
+
+}
+
+.data b{
+padding-left:5px;
+font-weight:normal;
+}
+
+.text{
+width:98%;
+box-sizing:border-box;
+margin:5px 5px;
+padding-left:10px;
+border:none;
+color:black;
+font-family:monospace;
+background:#91919e72;
+}
+
+.message{
+width:98%; 
+height:60px;
+box-sizing:border-box;
+margin:5px 5px;
+padding-left:10px;
+border:none;
+color:black;
+font-family:monospace;
+background:#91919e72;
+}
+
+button{
+width:20%;
+box-sizing:border-box;
+margin:10px 5px;
+padding-left:10px;
+border:none;
+color:black;
+font-family:monospace;
+background:#91919ebe;
+}
+
+.reset{
+width:20%;
+box-sizing:border-box;
+margin:10px 0px 5px 15px;
+padding-left:10px;
+border:none;
+color:black;
+font-family:monospace;
+background:#91919ebe;
+}
+
+.foot{
+width:100%;
+height:180px;
+color:white;
+box-sizing:border-box;
+background-color:black;
+float:left;
+margin-top:1px;
+font-weight:bold;
+padding-top:10px;
+padding-left:255px;
+}
+
+.us{
+line-height:60px;
+padding-left:190px;
+font-size:2vw;
+color:#408cffd0;
+}
+
+i{
+line-height:30px;
+margin-right:90px;
+font-size:2vw;
+color:red;
+}
+
+
+@media only screen and (max-width:600px)
+{
+.bar{
+height:55px;
+}
+
+.bar div{
+padding-top:15px;
+font-size:2vw;
+}
+
+.bar div:hover{
+font-size:2.5vw;
+}
+
+.section{
+margin-top:56px;
+height:150px;
+}
+
+h1{
+padding-top:70px;
+padding-left:15px;
+color:#0097e174;
+}
+
+h3{
+font-size:4vw;
+padding-left:25px;
+color:#e1138274;
+}
+
+.form{
+background-image:linear-gradient(red, orange,yellow);
+
+}
+
+.data{
+width:80%;
+}
+
+.text{
+margin-left:2px;
+}
+
+.message{
+margin-left:2px;
+}
+
+button{
+margin-left:2px;
+width:25%;
+}
+
+.reset{
+width:25%;
+}
+
+.foot{
+height:136px;
+padding-left:40px;
+font-size:2.5vw;
+padding-top:30px;
+}
+
+.us{
+font-size:3vw;
+padding-left:130px;
+line-height:40px;
+}
+
+i{
+margin-right:55px;
+line-height:0px;
+
+}
+
+}
+
+@media only screen and (max-width:375px)
+{
+
+.foot{
+height:114px;
+}
+
+.us{
+font-size:3.5vw;
+line-height:30px;
+padding-left:110px;
+}
+
+i{
+line-height:0px;
+margin-right:53px;
+}
+
+}
+
+
+
+
+@media only screen and  (min-width:768px) and (max-width:900px)
+{
+.bar{
+height:70px;
+}
+
+.bar div{
+padding-top:15px;
+}
+
+.section{
+margin-top:71px;
+height:250px;
+}
+
+h1{
+padding-left:15px;
+color:#e1d57178;
+}
+
+h3{
+color:#92929fa9;
+}
+
+.foot{
+padding-left:137px;
+height:168px;
+}
+
+.us{
+font-size:2.5vw;
+padding-left:180px;
+}
+
+i{
+line-height:0px;
+margin-right:95px;
+}
+
+}
+</style>
+</head>
+<body>
+  <div class="bar">
+<a href="https://electronhub.netlify.app">
+<div class="home"> 
+Home
+</div>
+</a>
+<a href="https://electronhub.netlify.app">
+<div class="product"> 
+Products
+</div>
+</a>
+<a href="https://electronhubsupport.netlify.app">
+<div class="support"> 
+Support
+</div>
+</a>
+<a href="https://electronhubaboutus.netlify.app">
+<div class="about">
+About Us
+</div>
+</a>
+<a href="https://electronhubsupport.netlify.app">
+<div class="contact">
+ Contact Us
+</div>
+</a>
+</div>
+<div class="section">
+<h1> 
+Electron Hub
+</h1>
+<h3>
+Har Ghar ki technology bas yehi se ! 
+</h3>
+</div>
+<div class="form">
+<div class="data">
+<form action="https://api.web3forms.com/submit" method="POST">
+<b>
+First Name
+</b>
+<br>
+<input type="hidden" name="access_key" value="17fe2b2f-1e90-4c55-9e66-80a4c5855f73">
+<input type="text"
+name="name" placeholder="Enter First Name" required class="text">
+<br>
+<b>
+E-mail
+</b>
+<br>
+<input type="e-mail"
+name="mail" placeholder="Enter your E-mail" class="text" required>
+<b>
+Message
+</b>
+<br>
+<input type="text"
+name="message" placeholder="Enter your Message..." required class="message">
+<br>
+<button>Send</button>
+<input type="Reset" class="reset">
+</form>
+</div>
+</div>
+<div class="foot">
+Copyright © 2024 Electron Hub. All rights reserved. 
+<br> 
+<c class="us">
+Follow Us
+</c>
+<br>
+<i class="ri-facebook-fill"></i>
+<i class="ri-instagram-line"></i>
+<i class="ri-youtube-line"></i>
+<i class="ri-whatsapp-line"></i>
+<i class="ri-linkedin-line"></i>
+</div>
+</body>
+</html>
